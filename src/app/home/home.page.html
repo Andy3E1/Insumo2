@@ -1,8 +1,8 @@
 <div class="background">
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      <div>
+<ion-header [translucent]="true" >
+  <ion-toolbar >
+    <ion-title >
+      <div >
         <img src="https://cdn-icons-png.flaticon.com/512/1582/1582819.png" alt="Imagen 1" id="icono0">
         <img src="assets/logo_sitio.png" alt="Imagen 2" id="icono1">
       </div>
@@ -10,17 +10,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-progress-bar type="Determinate"></ion-progress-bar>
+<ion-content [fullscreen]="true" >
+  <ion-progress-bar [value]="getProgress()"></ion-progress-bar>
   <!-- -->
-   <ion-item>
+   <ion-item >
    <ion-input placeholder="Agregar texto" [(ngModel)]="newTask"></ion-input>   
    <ion-button slot="end" (click)="addTask()" color="green" style="color:black">➕Agregar tarea</ion-button>
    </ion-item>
   <!-- -->
    <ion-list>
     <ion-item *ngFor= "let task of tasks">
-    <ion-label>{{task.title}}</ion-label>
+    <ion-label >{{task.title}}</ion-label>
     <ion-checkbox [(ngModel)]="task.completed"></ion-checkbox>
     <ion-button color="danger" slot ="end" (click)="deleteTask(task)">🗑️Eliminar</ion-button>
    </ion-item>

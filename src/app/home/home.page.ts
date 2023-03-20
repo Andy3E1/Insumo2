@@ -15,18 +15,23 @@ tasks:{title:string;completed:boolean;}[]=
 ]
 newTask='';
   constructor() {}
-addTask(){
-  if (this.newTask.trim().length===0){
-    return;
+  addTask(){
+    if(this.newTask.trim().length === 0){
+      return;
+    }
+    this.tasks.push({title:this.newTask,completed:false});
+    this.newTask='';
+
   }
-  this.tasks.push({title:this.newTask, completed:false});
-  this.newTask='';
-}
-deleteTask(task:{title: string; completed:boolean;}){
-  const index =this.tasks.indexOf(task);
-  this.tasks.splice(index,1);
-}
-getProgress(){
-  const totalTask = this.tasks.length;
-}
+
+  deleteTask(task: { title: string; completed: boolean; }){
+    const index = this.tasks.indexOf(task);
+    this.tasks.splice(index,1);
+  }
+
+  getProgress() {
+    const totalTasks = this.tasks.length;
+    const completedTasks = this.tasks.filter(task => task.completed).length;
+    return completedTasks / totalTasks;
+  }
 }
