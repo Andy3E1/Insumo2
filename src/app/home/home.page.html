@@ -1,22 +1,14 @@
 <body>
 <div class="background">
-<ion-header [translucent]="true" >
-  <ion-toolbar >
-    <ion-title >
-      <div >
-        <img src="https://cdn-icons-png.flaticon.com/512/1582/1582819.png" alt="Imagen 1" id="icono0">
-        <img src="assets/logo_sitio.png" alt="Imagen 2" id="icono1">
-      </div>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true" >
-  <ion-progress-bar [value]="getProgress()"></ion-progress-bar>
-  <!-- -->
+    <div >
+      <ion-progress-bar [value]="getProgress()"></ion-progress-bar>
+      <img src="https://cdn-icons-png.flaticon.com/512/1582/1582819.png" id="icono0">
+      <img src="assets/logo_sitio.png" id="icono1">
+    </div>
+  <ion-button class="agregar" slot="end" (click)="addTask()" color="success" style="color:rgb(32, 31, 31)" >➕Agregar Texto</ion-button>
    <ion-item >
-   <ion-input placeholder="Agregar texto" [(ngModel)]="newTask"></ion-input>   
-   <ion-button slot="end" (click)="addTask()" color="green" style="color:rgb(32, 31, 31)">➕Agregar tarea</ion-button>
+   <ion-input class="texto" placeholder="Redactar texto" [(ngModel)]="newTask"></ion-input>   
+
    </ion-item>
   <!-- -->
    <ion-list>
@@ -24,8 +16,8 @@
     <ion-label >{{task.title}}</ion-label>
     <ion-checkbox [(ngModel)]="task.completed" ></ion-checkbox>
     <ion-button color="danger" slot ="end" (click)="deleteTask(task)">🗑️Eliminar</ion-button>
+    <ion-button slot="end" (click)="editTask(task)">Editar</ion-button>
    </ion-item>
    </ion-list>
-</ion-content>
 </div>
 </body>
